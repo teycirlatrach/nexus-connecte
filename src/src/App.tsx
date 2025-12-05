@@ -1,19 +1,12 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import Home from "./pages/Home.tsx";
-import FormPage from "./pages/FormPage.tsx";
-import ConfirmationPage from "./pages/ConfirmationPage.tsx";
+import Home from "./routes/Home.tsx";
+import FormPage from "./routes/FormPage.tsx";
+import ConfirmationPage from "./routes/ConfirmationPage.tsx";
 
-<<<<<<< HEAD
-const App = () => {
-  return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
-      {/* Skip link accessibilité */}
-=======
 function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
       {/* Lien pour passer directement au contenu (accessibilité) */}
->>>>>>> 2d5fa727e4f6ac969307bb2abbc6c58f22ee22ed
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4
@@ -33,14 +26,10 @@ function App() {
         </div>
       </header>
 
-<<<<<<< HEAD
-      <main id="main-content" className="max-w-5xl mx-auto px-4 py-8">
-=======
       <main
         id="main-content"
         className="max-w-5xl mx-auto px-4 py-8"
       >
->>>>>>> 2d5fa727e4f6ac969307bb2abbc6c58f22ee22ed
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/form" element={<FormPage />} />
@@ -57,10 +46,6 @@ function App() {
       </footer>
     </div>
   );
-<<<<<<< HEAD
-};
-=======
 }
->>>>>>> 2d5fa727e4f6ac969307bb2abbc6c58f22ee22ed
 
 export default App;
