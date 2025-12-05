@@ -1,13 +1,16 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import DynamicForm from "../components/DynamicForm";
-import AiAssistantPanel from "../components/AiAssistantPanel";
+import AiAssistantPanel from "../components/AiAssistant";
+
+type MissionId = "contact" | "don" | "benevolat" | "info";
 
 const FormPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const missionId = (location.state as { missionId?: string } | null)?.missionId ?? null;
+  const missionId =
+    (location.state as { missionId?: MissionId } | null)?.missionId ?? null;
 
   useEffect(() => {
     if (!missionId) {
@@ -15,11 +18,9 @@ const FormPage = () => {
     }
   }, [missionId, navigate]);
 
-  if (!missionId) {
-    return null;
-  }
+  if (!missionId) return null;
 
-  const missionLabels: Record<string, string> = {
+  const missionLabels: Record<MissionId, string> = {
     contact: "Établir le contact",
     don: "Offrir un don",
     benevolat: "Rejoindre la guilde des bénévoles",
@@ -38,12 +39,12 @@ const FormPage = () => {
         >
           Tu es en train de :{" "}
           <span className="text-emerald-400">
-            {missionLabels[missionId] ?? "Remplir ta mission"}
+            {missionLabels[missionId]}
           </span>
         </h2>
         <p className="text-slate-300 max-w-2xl">
-          Tu n’auras à remplir que les champs vraiment nécessaires. L&apos;IA peut te suggérer
-          un message de base que tu pourras adapter.
+          Tu n’auras à remplir que les champs vraiment nécessaires. L&apos;IA
+          peut te suggérer un message de base que tu pourras adapter.
         </p>
       </header>
 
